@@ -2,7 +2,8 @@ import { serve } from "@hono/node-server";
 import { Hono } from "hono";
 import { db } from "./lib/db.js";
 import type { Blog } from "@prisma/client";
-const app = new Hono();
+
+const app = new Hono().basePath("/api");
 
 app.get("/blogs", async (c) => {
 	const blogs = await db.blog.findMany();

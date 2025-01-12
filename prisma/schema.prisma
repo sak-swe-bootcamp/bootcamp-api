@@ -6,6 +6,11 @@
 
 generator client {
   provider = "prisma-client-js"
+  binaryTargets = ["native", "linux-arm64-openssl-1.1.x"]
+}
+
+generator fabbrica {
+  provider = "prisma-fabbrica"
 }
 
 datasource db {

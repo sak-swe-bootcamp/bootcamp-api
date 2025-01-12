@@ -9,10 +9,6 @@ generator client {
   binaryTargets = ["native", "linux-arm64-openssl-1.1.x"]
 }
 
-generator fabbrica {
-  provider = "prisma-fabbrica"
-}
-
 datasource db {
   provider = "sqlite"
   url      = "file:./dev.db"

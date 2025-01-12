@@ -110,6 +110,75 @@ const swaggerSpec = swaggerJSDoc({
 						},
 					},
 				},
+
+				put: {
+					summary: "IDで指定されたブログを更新",
+					parameters: [
+						{
+							name: "id",
+							in: "path",
+							required: true,
+							description: "更新するブログのID",
+							schema: {
+								type: "string",
+							},
+						},
+					],
+					requestBody: {
+						required: true,
+						content: {
+							"application/json": {
+								schema: {
+									type: "object",
+									properties: {
+										title: { type: "string" },
+										content: { type: "string" },
+										userName: { type: "string" },
+										userImage: { type: "string" },
+									},
+								},
+							},
+						},
+					},
+					responses: {
+						200: {
+							description: "ブログの更新",
+							content: {
+								"application/json": {
+									schema: {
+										type: "object",
+										properties: {
+											id: { type: "string" },
+											title: { type: "string" },
+											content: { type: "string" },
+											userName: { type: "string" },
+											userImage: { type: "string" },
+										},
+									},
+								},
+							},
+						},
+					},
+				},
+				delete: {
+					summary: "IDで指定されたブログを削除",
+					parameters: [
+						{
+							name: "id",
+							in: "path",
+							required: true,
+							description: "削除するブログのID",
+							schema: {
+								type: "string",
+							},
+						},
+					],
+					responses: {
+						204: {
+							description: "ブログの削除",
+						},
+					},
+				},
 			},
 		},
 	},

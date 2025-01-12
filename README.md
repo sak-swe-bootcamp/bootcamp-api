@@ -1,8 +1,8 @@
 ```
-npm install
-npm run dev
+pnpm run setup
+pnpm start
 ```
 
 ```
-open http://localhost:3000
+open http://localhost:5678/api/swagger/ui
 ```

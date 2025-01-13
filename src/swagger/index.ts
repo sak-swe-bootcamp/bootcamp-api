@@ -1,34 +1,34 @@
-import { swaggerUI } from "@hono/swagger-ui";
-import { Hono } from "hono";
-import swaggerJSDoc from "swagger-jsdoc";
+import { swaggerUI } from '@hono/swagger-ui';
+import { Hono } from 'hono';
+import swaggerJSDoc from 'swagger-jsdoc';
 
 const swaggerSpec = swaggerJSDoc({
 	definition: {
-		openapi: "3.0.0",
+		openapi: '3.0.0',
 		info: {
-			title: "Blog API",
-			version: "1.0.0",
-			description: "ブログ記事を管理するためのAPI",
+			title: 'Blog API',
+			version: '1.0.0',
+			description: 'ブログ記事を管理するためのAPI',
 		},
 		paths: {
-			"/blogs": {
+			'/blogs': {
 				get: {
-					summary: "すべてのブログを取得",
+					summary: 'すべてのブログを取得',
 					responses: {
 						200: {
-							description: "ブログの一覧",
+							description: 'ブログの一覧',
 							content: {
-								"application/json": {
+								'application/json': {
 									schema: {
-										type: "array",
+										type: 'array',
 										items: {
-											type: "object",
+											type: 'object',
 											properties: {
-												id: { type: "string" },
-												title: { type: "string" },
-												content: { type: "string" },
-												userName: { type: "string" },
-												userImage: { type: "string" },
+												id: { type: 'string' },
+												title: { type: 'string' },
+												content: { type: 'string' },
+												userName: { type: 'string' },
+												userImage: { type: 'string' },
 											},
 										},
 									},
@@ -38,18 +38,18 @@ const swaggerSpec = swaggerJSDoc({
 					},
 				},
 				post: {
-					summary: "新しいブログを作成",
+					summary: '新しいブログを作成',
 					requestBody: {
 						required: true,
 						content: {
-							"application/json": {
+							'application/json': {
 								schema: {
-									type: "object",
+									type: 'object',
 									properties: {
-										title: { type: "string" },
-										content: { type: "string" },
-										userName: { type: "string" },
-										userImage: { type: "string" },
+										title: { type: 'string' },
+										content: { type: 'string' },
+										userName: { type: 'string' },
+										userImage: { type: 'string' },
 									},
 								},
 							},
@@ -57,17 +57,17 @@ const swaggerSpec = swaggerJSDoc({
 					},
 					responses: {
 						201: {
-							description: "新しいブログの作成",
+							description: '新しいブログの作成',
 							content: {
-								"application/json": {
+								'application/json': {
 									schema: {
-										type: "object",
+										type: 'object',
 										properties: {
-											id: { type: "string" },
-											title: { type: "string" },
-											content: { type: "string" },
-											userName: { type: "string" },
-											userImage: { type: "string" },
+											id: { type: 'string' },
+											title: { type: 'string' },
+											content: { type: 'string' },
+											userName: { type: 'string' },
+											userImage: { type: 'string' },
 										},
 									},
 								},
@@ -76,33 +76,33 @@ const swaggerSpec = swaggerJSDoc({
 					},
 				},
 			},
-			"/blogs/{id}": {
+			'/blogs/{id}': {
 				get: {
-					summary: "IDで指定されたブログを取得",
+					summary: 'IDで指定されたブログを取得',
 					parameters: [
 						{
-							name: "id",
-							in: "path",
+							name: 'id',
+							in: 'path',
 							required: true,
-							description: "取得するブログのID",
+							description: '取得するブログのID',
 							schema: {
-								type: "string",
+								type: 'string',
 							},
 						},
 					],
 					responses: {
 						200: {
-							description: "指定されたIDのブログ",
+							description: '指定されたIDのブログ',
 							content: {
-								"application/json": {
+								'application/json': {
 									schema: {
-										type: "object",
+										type: 'object',
 										properties: {
-											id: { type: "string" },
-											title: { type: "string" },
-											content: { type: "string" },
-											userName: { type: "string" },
-											userImage: { type: "string" },
+											id: { type: 'string' },
+											title: { type: 'string' },
+											content: { type: 'string' },
+											userName: { type: 'string' },
+											userImage: { type: 'string' },
 										},
 									},
 								},
@@ -112,29 +112,29 @@ const swaggerSpec = swaggerJSDoc({
 				},
 
 				put: {
-					summary: "IDで指定されたブログを更新",
+					summary: 'IDで指定されたブログを更新',
 					parameters: [
 						{
-							name: "id",
-							in: "path",
+							name: 'id',
+							in: 'path',
 							required: true,
-							description: "更新するブログのID",
+							description: '更新するブログのID',
 							schema: {
-								type: "string",
+								type: 'string',
 							},
 						},
 					],
 					requestBody: {
 						required: true,
 						content: {
-							"application/json": {
+							'application/json': {
 								schema: {
-									type: "object",
+									type: 'object',
 									properties: {
-										title: { type: "string" },
-										content: { type: "string" },
-										userName: { type: "string" },
-										userImage: { type: "string" },
+										title: { type: 'string' },
+										content: { type: 'string' },
+										userName: { type: 'string' },
+										userImage: { type: 'string' },
 									},
 								},
 							},
@@ -142,17 +142,17 @@ const swaggerSpec = swaggerJSDoc({
 					},
 					responses: {
 						200: {
-							description: "ブログの更新",
+							description: 'ブログの更新',
 							content: {
-								"application/json": {
+								'application/json': {
 									schema: {
-										type: "object",
+										type: 'object',
 										properties: {
-											id: { type: "string" },
-											title: { type: "string" },
-											content: { type: "string" },
-											userName: { type: "string" },
-											userImage: { type: "string" },
+											id: { type: 'string' },
+											title: { type: 'string' },
+											content: { type: 'string' },
+											userName: { type: 'string' },
+											userImage: { type: 'string' },
 										},
 									},
 								},
@@ -161,21 +161,21 @@ const swaggerSpec = swaggerJSDoc({
 					},
 				},
 				delete: {
-					summary: "IDで指定されたブログを削除",
+					summary: 'IDで指定されたブログを削除',
 					parameters: [
 						{
-							name: "id",
-							in: "path",
+							name: 'id',
+							in: 'path',
 							required: true,
-							description: "削除するブログのID",
+							description: '削除するブログのID',
 							schema: {
-								type: "string",
+								type: 'string',
 							},
 						},
 					],
 					responses: {
 						204: {
-							description: "ブログの削除",
+							description: 'ブログの削除',
 						},
 					},
 				},
@@ -186,7 +186,7 @@ const swaggerSpec = swaggerJSDoc({
 });
 
 export const swagger = new Hono()
-	.get("/ui", swaggerUI({ url: "/api/swagger/doc" }))
-	.get("/doc", (c) => {
+	.get('/ui', swaggerUI({ url: '/api/swagger/doc' }))
+	.get('/doc', (c) => {
 		return c.json(swaggerSpec);
 	});

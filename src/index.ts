@@ -16,6 +16,6 @@ export const PUT = handle(app);
 export const DELETE = handle(app);
 
 serve({
-	fetch: app.fetch,
-	port: 3000,
+  fetch: app.fetch,
+  port: 3000,
 });

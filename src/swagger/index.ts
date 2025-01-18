@@ -26,7 +26,6 @@ const swaggerSpec = swaggerJSDoc({
                       properties: {
                         id: { type: 'string' },
                         title: { type: 'string' },
-                        content: { type: 'string' },
                         userName: { type: 'string' },
                         userImage: { type: 'string' },
                       },

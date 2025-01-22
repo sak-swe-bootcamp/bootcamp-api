@@ -7,10 +7,11 @@ export const getBlogs = new Hono().get('/', async (c) => {
       select: {
         id: true,
         title: true,
-        content: false,
+        userName: true,
+        userImage: true,
         createdAt: true,
         updatedAt: true,
-      },
+      }
     });
     return c.json(blogs, 200);
   } catch (error) {

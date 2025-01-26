@@ -11,7 +11,7 @@ export const getBlogs = new Hono().get('/', async (c) => {
         userImage: true,
         createdAt: true,
         updatedAt: true,
-      }
+      },
     });
     return c.json(blogs, 200);
   } catch (error) {

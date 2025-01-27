@@ -1,10 +1,20 @@
 import { serve } from '@hono/node-server';
 import { Hono } from 'hono';
 import { handle } from 'hono/cloudflare-pages';
+import { cors } from 'hono/cors';
 import { blogs } from './blogs/route.js';
 import { swagger } from './swagger/index.js';
 
 const app = new Hono().basePath('/api');
+
+app.use(
+  '*',
+  cors({
+    origin: 'http://localhost:3000',
+    allowMethods: ['GET', 'POST', 'PUT', 'OPTIONS'],
+    allowHeaders: ['Content-Type'],
+  }),
+);
 
 const route = app.route('/blogs', blogs).route('/swagger', swagger);
 

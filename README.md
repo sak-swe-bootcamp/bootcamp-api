@@ -20,5 +20,3 @@ pnpm start
 ## API 仕様書
 
 サーバーが起動している場合、API 仕様書は次の URL から確認することができます。
-
-http://localhost:5678/api/swagger/ui

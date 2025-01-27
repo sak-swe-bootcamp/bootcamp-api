@@ -1,9 +1,9 @@
 import { Hono } from 'hono';
 import { deleteBlog } from './delete.js';
 import { getBlog } from './get.js';
+import { getBlogs } from './gets.js';
 import { postBlog } from './post.js';
 import { putBlog } from './put.js';
-import { getBlogs } from './gets.js';
 
 export const blogs = new Hono()
   .route('/', getBlogs)

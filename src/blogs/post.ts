@@ -16,7 +16,7 @@ const DEFAULT_USER_IMAGE_URL = 'https://avatars.githubusercontent.com/u/42';
 export const postBlog = new Hono().post(
   zValidator('json', schema, (result, c) => {
     if (!result.success) {
-      return c.text('paramsが正しくありません', 400);
+      return c.json({ error: 'paramsが正しくありません' }, 400);
     }
   }),
   async (c) => {

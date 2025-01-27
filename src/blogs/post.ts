@@ -5,9 +5,9 @@ import { z } from 'zod';
 import { db } from '../lib/db.js';
 
 const schema = z.object({
-  title: z.string(),
-  content: z.string(),
-  userName: z.string(),
+  title: z.string().nonempty(),
+  content: z.string().nonempty(),
+  userName: z.string().nonempty(),
   userImage: z.string().optional(),
 });
 

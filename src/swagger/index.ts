@@ -45,10 +45,28 @@ const swaggerSpec = swaggerJSDoc({
                 schema: {
                   type: 'object',
                   properties: {
-                    title: { type: 'string' },
-                    content: { type: 'string' },
-                    userName: { type: 'string' },
-                    userImage: { type: 'string' },
+                    title: {
+                      example: '記事タイトル',
+                      pattern: '.*\\S.*',
+                      required: true,
+                      type: 'string',
+                    },
+                    content: {
+                      example: '記事内容',
+                      pattern: '.*\\S.*',
+                      required: true,
+                      type: 'string',
+                    },
+                    userName: {
+                      example: 'ユーザ名',
+                      pattern: '.*\\S.*',
+                      required: true,
+                      type: 'string',
+                    },
+                    userImage: {
+                      type: 'string',
+                      example: 'ユーザ画像URL',
+                    },
                   },
                 },
               },
@@ -56,7 +74,7 @@ const swaggerSpec = swaggerJSDoc({
           },
           responses: {
             201: {
-              description: '新しいブログの作成',
+              description: '新しいブログを作成',
               content: {
                 'application/json': {
                   schema: {
@@ -67,6 +85,23 @@ const swaggerSpec = swaggerJSDoc({
                       content: { type: 'string' },
                       userName: { type: 'string' },
                       userImage: { type: 'string' },
+                    },
+                  },
+                },
+              },
+            },
+            400: {
+              description:
+                'title, content, userNameが空白文字の場合やパラメータが不正な場合',
+              content: {
+                'application/json': {
+                  schema: {
+                    type: 'object',
+                    properties: {
+                      error: {
+                        type: 'string',
+                        example: 'paramsが正しくありません',
+                      },
                     },
                   },
                 },
